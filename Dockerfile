@@ -6,10 +6,12 @@ WORKDIR /app
 
 COPY . .
 
+RUN yarn global add @medusajs/medusa-cli
+
 RUN yarn install
 
 RUN yarn build
 
-WORKDIR /.medusa/server
+WORKDIR /app/.medusa/server
 
 CMD yarn run predeploy && yarn run start
